@@ -22,6 +22,10 @@ extension PostsRouter: PostsWireframe {
     
     func openPostDetail(withPost post: Article) {
         
+        let detailPost = PostDetailRouter.assembleModule(post)
+        detailPost.hidesBottomBarWhenPushed = true
+        viewController?.navigationController?.pushViewController(detailPost, animated: true)
+        
     }
     
     static func assembleModule() -> UIViewController {

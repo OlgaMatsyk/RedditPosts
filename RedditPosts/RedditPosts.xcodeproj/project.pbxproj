@@ -24,6 +24,12 @@
 		39BB00AC22CC8B80003E76F6 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00AB22CC8B80003E76F6 /* APIServices.swift */; };
 		39BB00AE22CC8BF3003E76F6 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00AD22CC8BF3003E76F6 /* EndPoints.swift */; };
 		39BB00B122CCBD23003E76F6 /* IndicatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00B022CCBD23003E76F6 /* IndicatableView.swift */; };
+		39BB00B922CCBEED003E76F6 /* PostDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00B822CCBEED003E76F6 /* PostDetailInteractor.swift */; };
+		39BB00BB22CCBF31003E76F6 /* PostDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00BA22CCBF31003E76F6 /* PostDetailPresenter.swift */; };
+		39BB00BD22CCBF5B003E76F6 /* PostDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00BC22CCBF5B003E76F6 /* PostDetailRouter.swift */; };
+		39BB00BF22CCC001003E76F6 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00BE22CCC001003E76F6 /* PostDetailsViewController.swift */; };
+		39BB00C122CCC0AF003E76F6 /* PostDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00C022CCC0AF003E76F6 /* PostDetailsProtocol.swift */; };
+		39BB00C322CCC110003E76F6 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB00C222CCC110003E76F6 /* ReusableView.swift */; };
 		FDA5D2C7A77F165FE616C53E /* Pods_RedditPostsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722C030A3F2E9B7E2E8ADF50 /* Pods_RedditPostsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +73,12 @@
 		39BB00AB22CC8B80003E76F6 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		39BB00AD22CC8BF3003E76F6 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		39BB00B022CCBD23003E76F6 /* IndicatableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatableView.swift; sourceTree = "<group>"; };
+		39BB00B822CCBEED003E76F6 /* PostDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailInteractor.swift; sourceTree = "<group>"; };
+		39BB00BA22CCBF31003E76F6 /* PostDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailPresenter.swift; sourceTree = "<group>"; };
+		39BB00BC22CCBF5B003E76F6 /* PostDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailRouter.swift; sourceTree = "<group>"; };
+		39BB00BE22CCC001003E76F6 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		39BB00C022CCC0AF003E76F6 /* PostDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsProtocol.swift; sourceTree = "<group>"; };
+		39BB00C222CCC110003E76F6 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		5DA11BF8F1F5A9DAEF2BE9A0 /* Pods-RedditPosts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditPosts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RedditPosts/Pods-RedditPosts.debug.xcconfig"; sourceTree = "<group>"; };
 		6CA006DE2B1CBB87B7D2691E /* Pods_RedditPostsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditPostsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		722C030A3F2E9B7E2E8ADF50 /* Pods_RedditPostsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditPostsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +184,7 @@
 		39BB009622CC7141003E76F6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				39BB00B222CCBE42003E76F6 /* Details */,
 				39BB009722CC7185003E76F6 /* Posts */,
 			);
 			path = Modules;
@@ -252,8 +265,61 @@
 			isa = PBXGroup;
 			children = (
 				39BB00B022CCBD23003E76F6 /* IndicatableView.swift */,
+				39BB00C222CCC110003E76F6 /* ReusableView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39BB00B222CCBE42003E76F6 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				39BB00B722CCBE82003E76F6 /* Protocols */,
+				39BB00B622CCBE6B003E76F6 /* Interactor */,
+				39BB00B522CCBE61003E76F6 /* Presenter */,
+				39BB00B422CCBE55003E76F6 /* Router */,
+				39BB00B322CCBE4E003E76F6 /* View */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		39BB00B322CCBE4E003E76F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39BB00BE22CCC001003E76F6 /* PostDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39BB00B422CCBE55003E76F6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				39BB00BC22CCBF5B003E76F6 /* PostDetailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		39BB00B522CCBE61003E76F6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				39BB00BA22CCBF31003E76F6 /* PostDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		39BB00B622CCBE6B003E76F6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				39BB00B822CCBEED003E76F6 /* PostDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		39BB00B722CCBE82003E76F6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				39BB00C022CCC0AF003E76F6 /* PostDetailsProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		727AA25FCCAB5BE4A9D54B7E /* Pods */ = {
@@ -485,12 +551,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				39BB006B22CBA149003E76F6 /* PostsViewController.swift in Sources */,
+				39BB00C322CCC110003E76F6 /* ReusableView.swift in Sources */,
 				39BB00B122CCBD23003E76F6 /* IndicatableView.swift in Sources */,
+				39BB00C122CCC0AF003E76F6 /* PostDetailsProtocol.swift in Sources */,
 				39BB006922CBA149003E76F6 /* AppDelegate.swift in Sources */,
 				39BB009F22CC754B003E76F6 /* RedditPostsProtocols.swift in Sources */,
 				39BB00A122CC760E003E76F6 /* Posts.swift in Sources */,
+				39BB00BD22CCBF5B003E76F6 /* PostDetailRouter.swift in Sources */,
+				39BB00B922CCBEED003E76F6 /* PostDetailInteractor.swift in Sources */,
 				39BB00A722CC7F5E003E76F6 /* PostsRouter.swift in Sources */,
 				39BB00A522CC7A16003E76F6 /* PostsPresenter.swift in Sources */,
+				39BB00BF22CCC001003E76F6 /* PostDetailsViewController.swift in Sources */,
+				39BB00BB22CCBF31003E76F6 /* PostDetailPresenter.swift in Sources */,
 				39BB00AE22CC8BF3003E76F6 /* EndPoints.swift in Sources */,
 				39BB00A322CC77F5003E76F6 /* RedditPostsInteractor.swift in Sources */,
 				39BB00A922CC8544003E76F6 /* PostsTableViewCell.swift in Sources */,

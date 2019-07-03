@@ -33,7 +33,6 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
     
     func setupView() {
 
-        
         // set a background color
         tableView.backgroundColor = UIColor.black
         
@@ -79,6 +78,10 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
         )
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectedPost(self.posts[indexPath.row])
     }
 }
 
