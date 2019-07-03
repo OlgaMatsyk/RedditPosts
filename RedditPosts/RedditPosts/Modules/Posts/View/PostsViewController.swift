@@ -69,9 +69,8 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.authorLabel.text = article.author
         cell.titleLabel.text = article.title
-//        cell.postThumbnail.image = UIImage(named: "defaultThumbnail")
         cell.entryDateLabel.text = "entryDateLabel"
-        cell.numberOfCommentsLabel.text = "comments"
+        cell.numberOfCommentsLabel.text = String(format:"Comments %d", article.num_comments ?? 0) 
         
         cell.postThumbnail.kf.setImage(
                 with: URL(string: article.thumbnail ?? "")
