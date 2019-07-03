@@ -57,18 +57,20 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PostTableViewCell
         cell.accessoryType = .disclosureIndicator
         
+        let article = self.posts[indexPath.row]
+        
+        cell.authorLabel.text = article.author
+        cell.titleLabel.text = article.title
         cell.postThumbnail.image = UIImage(named: "defaultThumbnail")
         cell.entryDateLabel.text = "entryDateLabel"
-        cell.authorLabel.text = "author"
         cell.numberOfCommentsLabel.text = "comments"
-        cell.titleLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         
         return cell
     }
@@ -81,7 +83,7 @@ extension PostsViewController: PostsView {
     }
     
     func showPostData(_ data: [Article]) {
-        
+        self.posts = data
     }
     
     func showLoading() {
