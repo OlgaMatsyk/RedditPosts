@@ -6,6 +6,7 @@ target 'RedditPosts' do
   use_frameworks!
     pod 'RxSwift'
     pod 'Alamofire'
+    pod 'Kingfisher'
 
   # Pods for RedditPosts
 

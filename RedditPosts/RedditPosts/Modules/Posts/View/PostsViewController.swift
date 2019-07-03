@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -68,9 +69,13 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.authorLabel.text = article.author
         cell.titleLabel.text = article.title
-        cell.postThumbnail.image = UIImage(named: "defaultThumbnail")
+//        cell.postThumbnail.image = UIImage(named: "defaultThumbnail")
         cell.entryDateLabel.text = "entryDateLabel"
         cell.numberOfCommentsLabel.text = "comments"
+        
+        cell.postThumbnail.kf.setImage(
+                with: URL(string: article.thumbnail ?? "")
+        )
         
         return cell
     }
