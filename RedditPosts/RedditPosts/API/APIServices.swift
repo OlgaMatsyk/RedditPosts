@@ -50,7 +50,7 @@ class APIServices {
                                         continue
                                 }
                                 
-                                let object = Article(author: author, title: title, thumbnail: thumbnail, created: created, num_comments: comments)
+                                let object = Article(author: author, title: title, thumbnail: thumbnail, created: created, num_comments: comments, unreadStatus: false)
                                 atricles.append(object)
                             }
                          

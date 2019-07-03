@@ -21,4 +21,5 @@ struct Article: Codable {
     let thumbnail: String?
     let created: Double?
     let num_comments: Int?
+    var unreadStatus: Bool
 }

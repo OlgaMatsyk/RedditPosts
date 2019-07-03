@@ -31,6 +31,10 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
     func setupView() {
 
         // set a background color
@@ -68,6 +72,7 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.authorLabel.text = article.author
         cell.titleLabel.text = article.title
+        cell.unreadStatus.isHidden = article.unreadStatus
         
         let date = Date(timeIntervalSince1970: article.created ?? 0)
         cell.entryDateLabel.text = date.getElapsedInterval()
@@ -81,7 +86,10 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelectedPost(self.posts[indexPath.row])
+        var post = self.posts[indexPath.row]
+        post.unreadStatus = true
+        
+        presenter.didSelectedPost(post)
     }
 }
 
