@@ -69,8 +69,10 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.authorLabel.text = article.author
         cell.titleLabel.text = article.title
-        cell.entryDateLabel.text = "entryDateLabel"
-        cell.numberOfCommentsLabel.text = String(format:"Comments %d", article.num_comments ?? 0) 
+        
+        let date = Date(timeIntervalSince1970: article.created ?? 0)
+        cell.entryDateLabel.text = date.getElapsedInterval()
+        cell.numberOfCommentsLabel.text = String(format:"Comments %d", article.num_comments ?? 0)
         
         cell.postThumbnail.kf.setImage(
                 with: URL(string: article.thumbnail ?? "")
@@ -80,22 +82,44 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
-extension PostsViewController: PostsView {
-    
-    func showEmptyData() {
+    extension PostsViewController: PostsView {
         
-    }
-    
-    func showPostData(_ data: [Article]) {
-        self.posts = data
-    }
-    
-    func showLoading() {
+        func showEmptyData() {
+            
+        }
         
-    }
-    
-    func hideLoading() {
+        func showPostData(_ data: [Article]) {
+            self.posts = data
+        }
         
+        func showLoading() {
+            
+        }
+        
+        func hideLoading() {
+            
+    }
 }
+
+extension Date {
+    
+    func getElapsedInterval() -> String {
+        
+        let interval = Calendar.current.dateComponents([.year, .month, .day], from: self, to: Date())
+        
+        if let year = interval.year, year > 0 {
+            return year == 1 ? "\(year)" + " " + "year ago" :
+                "\(year)" + " " + "years ago"
+        } else if let month = interval.month, month > 0 {
+            return month == 1 ? "\(month)" + " " + "month ago" :
+                "\(month)" + " " + "months ago"
+        } else if let day = interval.day, day > 0 {
+            return day == 1 ? "\(day)" + " " + "day ago" :
+                "\(day)" + " " + "days ago"
+        } else {
+            return "a moment ago"
+            
+        }
+    }
 }
 

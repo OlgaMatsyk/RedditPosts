@@ -44,12 +44,13 @@ class APIServices {
                                 guard let author = postData!["author"] as? String,
                                     let title = postData!["title"] as? String,
                                     let comments = postData!["num_comments"] as? Int,
+                                    let created = postData!["created"] as? Double,
                                     let thumbnail = postData!["thumbnail"] as? String else {
                                         print("Something is not well")
                                         continue
                                 }
                                 
-                                let object = Article(author: author, title: title, description: "", url: "", thumbnail: thumbnail, publishedAt: "", content: "", num_comments: comments)
+                                let object = Article(author: author, title: title, thumbnail: thumbnail, created: created, num_comments: comments)
                                 atricles.append(object)
                             }
                          

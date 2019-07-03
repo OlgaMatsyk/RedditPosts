@@ -17,10 +17,8 @@ struct Posts: Codable {
 // MARK: - Article
 struct Article: Codable {
     let author: String?
-    let title, description: String?
-    let url: String?
+    let title: String?
     let thumbnail: String?
-    let publishedAt: String?
-    let content: String?
+    let created: Double?
     let num_comments: Int?
 }
