@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.8.2)
   - Kingfisher (5.6.0)
+  - PKHUD (5.3.0)
   - RxSwift (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - PKHUD
   - RxSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Kingfisher
+    - PKHUD
     - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 8fb837f1451c0e3c1dd026723d6d1c5a11da0381
+PODFILE CHECKSUM: 95740e494b56c139e2ad760c371f525ecca92580
 
 COCOAPODS: 1.5.0

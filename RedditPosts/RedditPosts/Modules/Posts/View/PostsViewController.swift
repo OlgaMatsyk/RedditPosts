@@ -85,20 +85,12 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
     extension PostsViewController: PostsView {
         
         func showEmptyData() {
-            
+            // TODO: show no results placeholder
         }
         
         func showPostData(_ data: [Article]) {
             self.posts = data
         }
-        
-        func showLoading() {
-            
-        }
-        
-        func hideLoading() {
-            
-    }
 }
 
 extension Date {
