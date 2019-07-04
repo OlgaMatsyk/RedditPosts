@@ -9,5 +9,6 @@
 import Foundation
 
 struct API {
-    static let baseUrl = "https://www.reddit.com/r/all/top/.json?t=all&limit=100"
+    static let baseUrl = "https://www.reddit.com/r/all/top/.json?t=all&limit=1"
+    static let moreItemsUrl = "https://www.reddit.com/r/all/top/.json?t=all&limit=10&after=%d"
 }

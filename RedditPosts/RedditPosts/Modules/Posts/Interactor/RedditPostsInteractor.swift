@@ -16,7 +16,17 @@ class PostsInteractor {
 extension PostsInteractor: PostsUseCase {
     
     func fetchPosts() {
-        APIServices.fetchPosts()
+        APIServices.fetchPosts(step: 0)
+            .subscribe(onNext: { posts in
+                self.output.postsFetched(posts)
+            }, onError: { error in
+                self.output.failedFetchPosts()
+            }).disposed(by: disposeBag)
+    }
+    
+    func fetchMorePosts(_ step: Int)
+    {
+        APIServices.fetchPosts(step: step)
             .subscribe(onNext: { posts in
                 self.output.postsFetched(posts)
             }, onError: { error in

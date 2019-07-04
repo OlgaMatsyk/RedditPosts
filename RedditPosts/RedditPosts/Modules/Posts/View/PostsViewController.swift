@@ -82,6 +82,12 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
                 with: URL(string: article.thumbnail ?? "")
         )
         
+        // for pagination 
+        if indexPath.row == posts.count - 1 && (tableView.indexPathsForVisibleRows!.contains(indexPath))
+{
+            presenter.viewNeedsMoreItems()
+        }
+        
         return cell
     }
     
@@ -99,8 +105,8 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
             // TODO: show no results placeholder
         }
         
-        func showPostData(_ data: [Article]) {
-            self.posts = data
+        func showPostsData(_ data: [Article]) {
+            self.posts.append(contentsOf: data)
         }
 }
 

@@ -12,15 +12,19 @@ import RxSwift
 
 class APIServices {
     
-    
-    /// FETCH HEADLINE NEWS
     ///
     /// - Returns: return
-    static func fetchPosts() -> Observable<Posts> {
+    static func fetchPosts(step: Int) -> Observable<Posts> {
         
         return Observable<Posts>.create({ observer -> Disposable in
+            
+            let urlStr : String = String(format: API.moreItemsUrl, step)
+
+            let urlStrEncoded : String = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+            let url = URL(string: urlStrEncoded)
             let request = Alamofire
-                .request(API.baseUrl, method: .get)
+                .request(url!, method: .get)
                 .validate()
                 .responseString(completionHandler: { response in
                     switch response.result {

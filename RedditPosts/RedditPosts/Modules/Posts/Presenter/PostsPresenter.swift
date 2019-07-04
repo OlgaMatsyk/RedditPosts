@@ -15,12 +15,13 @@ class PostsPresenter {
     weak var view: PostsView?
     var router: PostsWireframe!
     var interactor: PostsUseCase!
+    var step: Int = 10
     
     var posts: Posts? {
         didSet {
-            guard let postsArticle = posts?.articles else { return }
-            if postsArticle.count > 0 {
-                view?.showPostData(postsArticle)
+            guard let postsArticles = posts?.articles else { return }
+            if postsArticles.count > 0 {
+                view?.showPostsData(postsArticles)
             } else {
                 view?.showEmptyData()
             }
@@ -43,6 +44,12 @@ extension PostsPresenter: PostsPresentation {
     func viewDidLoad() {
         interactor.fetchPosts()
         view?.showLoading()
+    }
+    
+    func viewNeedsMoreItems() {
+        interactor.fetchMorePosts(step)
+        view?.showLoading()
+        step = step + 10
     }
 }
 

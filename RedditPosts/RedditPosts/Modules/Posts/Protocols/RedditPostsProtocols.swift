@@ -13,7 +13,7 @@ protocol PostsView: IndicateTableView {
     
     var presenter: PostsPresentation! { get set }
     func showEmptyData()
-    func showPostData(_ data: [Article])
+    func showPostsData(_ data: [Article])
 }
 
 protocol PostsPresentation: class {
@@ -23,6 +23,7 @@ protocol PostsPresentation: class {
     var router: PostsWireframe! { get set }
     
     func viewDidLoad()
+    func viewNeedsMoreItems()
     func didSelectedPost(_ post: Article)
     func didReloadFetchPosts()
 }
@@ -32,6 +33,8 @@ protocol PostsUseCase: class {
     var output: PostsInteractorOutput! { get set }
     
     func fetchPosts()
+    
+    func fetchMorePosts(_ step: Int)
 }
 
 protocol PostsInteractorOutput: class {
