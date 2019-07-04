@@ -88,7 +88,7 @@ class PostsViewController:  UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var post = self.posts[indexPath.row]
         post.unreadStatus = true
-        
+        self.posts[indexPath.row] = post
         presenter.didSelectedPost(post)
     }
 }
